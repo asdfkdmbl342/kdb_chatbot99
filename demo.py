@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 # load_dotenv()
 
 import os
-os.environ[“OPENAI_API_KEY”] = “sk-proj-N4Eym32hD3HkVltVNWi8T3BlbkFJiq4n7XcFLK24rp6FgBgZ”
+os.environ["OPENAI_API_KEY"] = “sk-proj-N4Eym32hD3HkVltVNWi8T3BlbkFJiq4n7XcFLK24rp6FgBgZ”
 
 # handle streaming conversation
 class StreamHandler(BaseCallbackHandler):
