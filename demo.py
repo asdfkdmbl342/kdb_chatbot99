@@ -103,13 +103,13 @@ def generate_summarize(raw_text, callback):
 st.set_page_config(page_title='🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
 st.title('🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
 
-# api key input button 
-# import os
-# api_key = st.sidebar.text_input("Enter your OpenAI API Key", type="password")
-# save_button = st.sidebar.button("Save Key")
-# if save_button and len(api_key)>10:
-#     os.environ["OPENAI_API_KEY"] = api_key
-#     st.sidebar.success("API Key saved successfully!")
+api key input button 
+import os
+api_key = st.sidebar.text_input("Enter your OpenAI API Key", type="password")
+save_button = st.sidebar.button("Save Key")
+if save_button and len(api_key)>10:
+    os.environ["OPENAI_API_KEY"] = api_key
+    st.sidebar.success("API Key saved successfully!")
 
 # file upload
 uploaded_file = st.file_uploader('Upload an document', type=['pdf'])
