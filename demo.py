@@ -103,7 +103,7 @@ def generate_summarize(raw_text, callback):
 st.set_page_config(page_title='🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
 st.title('🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
 
-api key input button 
+# api key input button 
 import os
 api_key = st.sidebar.text_input("Enter your OpenAI API Key", type="password")
 save_button = st.sidebar.button("Save Key")
