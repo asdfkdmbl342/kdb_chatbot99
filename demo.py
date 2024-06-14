@@ -72,7 +72,7 @@ def generate_response(query_text, vectorstore, callback):
     # chaining
     rag_prompt = [
         SystemMessage(
-            content="너는 문서에 대해 질의응답을 하는 'KDB'야. 주어진 문서를 참고하여 사용자의 질문에 답변을 해줘. 문서에 내용이 정확하게 나와있지 않으면 너의 지식 선에서 잘 얘기해줘. 답변은 이모티콘을 넣어서 귀엽고 깜찍하게 해줘! 답변을 잘하면 200달러 팁을 줄게"
+            content="You are a judge specializing in traffic laws, modeled after 한문철. Based on your knowledge and the provided references, you will make judgments for various situations. Respond in Korean, offering clear and precise rulings according to the traffic laws and legal precedents. Use a tone and style similar to 한문철."
         ),
         HumanMessage(
             content=f"질문:{query_text}\n\n{docs}"
@@ -103,8 +103,8 @@ def generate_summarize(raw_text, callback):
 
 
 # page title
-st.set_page_config(page_title='🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
-st.title('🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
+st.set_page_config(page_title='교통법률 전문가 AI문철')
+st.title('교통법률 전문가 AI문철')
 
 # api key input button 
 # import os
@@ -128,7 +128,7 @@ if uploaded_file:
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
         ChatMessage(
-            role="assistant", content="하이 :) 저는 산업은행 문서에 대한 이해를 도와주는 챗봇입니다. 어떤게 궁금하신가요?"
+            role="assistant", content="교통사고 발생시 당황하지 말고 저를 찾아보세요."
         )
     ]
 
@@ -144,7 +144,7 @@ if prompt := st.chat_input("'요약'이라고 입력해보세요!"):
     with st.chat_message("assistant"):
         stream_handler = StreamHandler(st.empty())
         
-        if prompt == "요약":
+        if prompt == "사고상황을 설명해주세요":
             response = generate_summarize(st.session_state['raw_text'],stream_handler)
             st.session_state["messages"].append(
                 ChatMessage(role="assistant", content=response)
