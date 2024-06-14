@@ -137,14 +137,14 @@ for msg in st.session_state.messages:
     st.chat_message(msg.role).write(msg.content)
     
 # message interaction
-if prompt := st.chat_input("'요약'이라고 입력해보세요!"):
+if prompt := st.chat_input("어떤 난처한 상황에 처하셨나요?"):
     st.session_state.messages.append(ChatMessage(role="user", content=prompt))
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
         stream_handler = StreamHandler(st.empty())
         
-        if prompt == "사고상황을 설명해주세요":
+        if prompt == "어떤 난처한 상황에 처하셨나요?":
             response = generate_summarize(st.session_state['raw_text'],stream_handler)
             st.session_state["messages"].append(
                 ChatMessage(role="assistant", content=response)
